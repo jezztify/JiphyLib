@@ -23,6 +23,8 @@ class Jiphy(object):
 			usage: Get_ProjectID("This Project Name")
 		'''
 		endpoint = "/util/project-list"
+		response = requests.Session()
+		response.trust_env = False
 		response = requests.get(self.url+endpoint, auth=(self.user,self.passwd))
 		results = json.loads(response.text)
 		for index in range(0,len(results['options'])):
@@ -41,6 +43,8 @@ class Jiphy(object):
 		'''
 		cycleID = "0"
 		endpoint = "/cycle?projectId=" + projectID
+		response = requests.Session()
+		response.trust_env = False
 		response = requests.get(self.url+endpoint, auth=(self.user,self.passwd))
 		results = json.loads(response.text)
 		for version in results:
@@ -68,6 +72,8 @@ class Jiphy(object):
 				"projectId": projectID,
 				"versionId": "-1"
 			}
+			response = requests.Session()
+			response.trust_env = False
 			response = requests.post(self.url+endpoint, data=json.dumps(payload), headers=headers, auth=(self.user,self.passwd))
 			results = json.loads(response.text)
 			cycleID = json.dumps(results['id'])
@@ -82,6 +88,8 @@ class Jiphy(object):
 			usage: Get_IssueID("PRJCODE")
 		'''		
 		endpoint = "/zql/executeSearch?zqlQuery=project='"+ projectCode +"'&maxRecords=1000"
+		response = requests.Session()
+		response.trust_env = False
 		response = requests.get(self.url+endpoint, auth=(self.user,self.passwd))
 		results = json.loads(response.text)
 		issueIDs = []
@@ -112,6 +120,8 @@ class Jiphy(object):
 		headers = {
 				'content-type': "application/json"
 		}
+		response = requests.Session()
+		response.trust_env = False
 		response = requests.post(self.url+endpoint, data=json.dumps(payload), headers=headers, auth=(self.user,self.passwd))
 		results = json.loads(response.text)
 		for id in results:
@@ -128,6 +138,8 @@ class Jiphy(object):
 			usage: __Get_Exec_StatusID("PASS")
 		'''		
 		endpoint = "/util/testExecutionStatus"
+		response = requests.Session()
+		response.trust_env = False
 		response = requests.get(self.url+endpoint, auth=(self.user,self.passwd))
 		results = json.loads(response.text)
 		for item in range(0,len(results)):
@@ -151,6 +163,8 @@ class Jiphy(object):
 		payload = {
 			"status": self.__Get_Exec_StatusID(status)
 		}
+		response = requests.Session()
+		response.trust_env = False
 		response = requests.put(self.url+endpoint, data=json.dumps(payload), headers=headers, auth=(self.user,self.passwd))
 		print response.status_code
 		return response.status_code
@@ -164,7 +178,7 @@ class Jiphy(object):
 			thisjson = xmltodict.parse(f, xml_attribs=True)
 			f.close()
 		## for logging and checking purposes only
-		with open('TestData/output.json','w') as f:
+		with open('output.json','w') as f:
 			f.write(json.dumps(thisjson, indent=4))
 			f.close()
 		resultdict = []
