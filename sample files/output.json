@@ -1,0 +1,1435 @@
+{
+    "robot": {
+        "@generated": "20170817 14:12:59.230", 
+        "@generator": "Robot 3.0.2 (Python 2.7.13 on win32)", 
+        "suite": {
+            "@source": "D:\\1_TestArc\\NokiaAVA\\Tests\\RegressionQ2.robot", 
+            "@id": "s1", 
+            "@name": "RegressionQ2", 
+            "kw": [
+                {
+                    "@type": "setup", 
+                    "@name": "Prepare Execution", 
+                    "@library": "Phub_Keywords", 
+                    "kw": [
+                        {
+                            "@name": "Log To Console", 
+                            "@library": "BuiltIn", 
+                            "doc": "Logs the given message to the console.", 
+                            "arguments": {
+                                "arg": "\\n[Pre-execution]"
+                            }, 
+                            "status": {
+                                "@status": "NOT_RUN", 
+                                "@endtime": "20170817 14:13:02.759", 
+                                "@starttime": "20170817 14:13:02.758"
+                            }
+                        }, 
+                        {
+                            "@name": "Generate Project Name", 
+                            "@library": "Phub_Keywords", 
+                            "kw": [
+                                {
+                                    "@name": "Get Time", 
+                                    "@library": "BuiltIn", 
+                                    "doc": "Returns the given time in the requested format.", 
+                                    "arguments": {
+                                        "arg": [
+                                            "epoch", 
+                                            "NOW"
+                                        ]
+                                    }, 
+                                    "assign": {
+                                        "var": "${EpochTime}"
+                                    }, 
+                                    "status": {
+                                        "@status": "NOT_RUN", 
+                                        "@endtime": "20170817 14:13:02.761", 
+                                        "@starttime": "20170817 14:13:02.761"
+                                    }
+                                }, 
+                                {
+                                    "@name": "Set Global Variable", 
+                                    "@library": "BuiltIn", 
+                                    "doc": "Makes a variable available globally in all tests and suites.", 
+                                    "arguments": {
+                                        "arg": [
+                                            "${projectname}", 
+                                            "AVA${EpochTime}${ext}"
+                                        ]
+                                    }, 
+                                    "status": {
+                                        "@status": "NOT_RUN", 
+                                        "@endtime": "20170817 14:13:02.763", 
+                                        "@starttime": "20170817 14:13:02.762"
+                                    }
+                                }, 
+                                {
+                                    "@name": "Log To Console", 
+                                    "@library": "BuiltIn", 
+                                    "doc": "Logs the given message to the console.", 
+                                    "arguments": {
+                                        "arg": "${projectname}"
+                                    }, 
+                                    "status": {
+                                        "@status": "NOT_RUN", 
+                                        "@endtime": "20170817 14:13:02.764", 
+                                        "@starttime": "20170817 14:13:02.763"
+                                    }
+                                }
+                            ], 
+                            "status": {
+                                "@status": "PASS", 
+                                "@endtime": "20170817 14:13:02.764", 
+                                "@starttime": "20170817 14:13:02.760"
+                            }
+                        }, 
+                        {
+                            "@name": "Generate Keycloak Username", 
+                            "@library": "Keycloak_Keywords", 
+                            "kw": [
+                                {
+                                    "@name": "Get Time", 
+                                    "@library": "BuiltIn", 
+                                    "doc": "Returns the given time in the requested format.", 
+                                    "arguments": {
+                                        "arg": [
+                                            "epoch", 
+                                            "NOW"
+                                        ]
+                                    }, 
+                                    "assign": {
+                                        "var": "${EpochTime}"
+                                    }, 
+                                    "status": {
+                                        "@status": "NOT_RUN", 
+                                        "@endtime": "20170817 14:13:02.767", 
+                                        "@starttime": "20170817 14:13:02.766"
+                                    }
+                                }, 
+                                {
+                                    "@name": "Set Global Variable", 
+                                    "@library": "BuiltIn", 
+                                    "doc": "Makes a variable available globally in all tests and suites.", 
+                                    "arguments": {
+                                        "arg": [
+                                            "${KeycloakUser}", 
+                                            "KeyCloak${EpochTime}"
+                                        ]
+                                    }, 
+                                    "status": {
+                                        "@status": "NOT_RUN", 
+                                        "@endtime": "20170817 14:13:02.768", 
+                                        "@starttime": "20170817 14:13:02.767"
+                                    }
+                                }
+                            ], 
+                            "status": {
+                                "@status": "PASS", 
+                                "@endtime": "20170817 14:13:02.768", 
+                                "@starttime": "20170817 14:13:02.764"
+                            }
+                        }, 
+                        {
+                            "@name": "Run Keyword If", 
+                            "@library": "BuiltIn", 
+                            "doc": "Runs the given keyword with the given arguments, if ``condition`` is true.", 
+                            "arguments": {
+                                "arg": [
+                                    "'${RunLocally}'=='No' and '${UseChromeOptions}'=='Yes'", 
+                                    "Browser Setup with Chrome Options"
+                                ]
+                            }, 
+                            "kw": {
+                                "@name": "Browser Setup with Chrome Options", 
+                                "@library": "Env_Keywords", 
+                                "kw": [
+                                    {
+                                        "@name": "Evaluate", 
+                                        "@library": "BuiltIn", 
+                                        "doc": "Evaluates the given expression in Python and returns the results.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "sys.modules['selenium.webdriver'].ChromeOptions()", 
+                                                "sys, selenium.webdriver"
+                                            ]
+                                        }, 
+                                        "assign": {
+                                            "var": "${chrome options}"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.772", 
+                                            "@starttime": "20170817 14:13:02.771"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Create Dictionary", 
+                                        "@library": "BuiltIn", 
+                                        "doc": "Creates and returns a dictionary based on the given ``items``.", 
+                                        "arguments": {
+                                            "arg": "download.default_directory=C:${/}xampp1${/}htdocs"
+                                        }, 
+                                        "assign": {
+                                            "var": "${prefs}"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.773", 
+                                            "@starttime": "20170817 14:13:02.772"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Call Method", 
+                                        "@library": "BuiltIn", 
+                                        "doc": "Calls the named method of the given object with the provided arguments.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "${chrome options}", 
+                                                "add_experimental_option", 
+                                                "prefs", 
+                                                "${prefs}"
+                                            ]
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.774", 
+                                            "@starttime": "20170817 14:13:02.773"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Call Method", 
+                                        "@library": "BuiltIn", 
+                                        "doc": "Calls the named method of the given object with the provided arguments.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "${chrome options}", 
+                                                "to_capabilities"
+                                            ]
+                                        }, 
+                                        "assign": {
+                                            "var": "${options}"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.775", 
+                                            "@starttime": "20170817 14:13:02.774"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Create Webdriver", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Creates an instance of a WebDriver.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "Remote", 
+                                                "command_executor=${RemoteURL}", 
+                                                "desired_capabilities=${options}"
+                                            ]
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.776", 
+                                            "@starttime": "20170817 14:13:02.775"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Go To", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Navigates the active browser instance to the provided URL.", 
+                                        "arguments": {
+                                            "arg": "${${TESTENV}['sut_url']}${/}auth${/}admin"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.776", 
+                                            "@starttime": "20170817 14:13:02.776"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Maximize Browser Window", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Maximizes current browser window.", 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.777", 
+                                            "@starttime": "20170817 14:13:02.777"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Set Browser Implicit Wait", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Sets current browser's implicit wait in seconds.", 
+                                        "arguments": {
+                                            "arg": "30s"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.778", 
+                                            "@starttime": "20170817 14:13:02.777"
+                                        }
+                                    }
+                                ], 
+                                "status": {
+                                    "@status": "PASS", 
+                                    "@endtime": "20170817 14:13:02.778", 
+                                    "@starttime": "20170817 14:13:02.770"
+                                }
+                            }, 
+                            "status": {
+                                "@status": "NOT_RUN", 
+                                "@endtime": "20170817 14:13:02.778", 
+                                "@starttime": "20170817 14:13:02.769"
+                            }
+                        }, 
+                        {
+                            "@name": "Run Keyword If", 
+                            "@library": "BuiltIn", 
+                            "doc": "Runs the given keyword with the given arguments, if ``condition`` is true.", 
+                            "arguments": {
+                                "arg": [
+                                    "'${RunLocally}'=='No' and '${UseChromeOptions}'=='No'", 
+                                    "Browser Setup"
+                                ]
+                            }, 
+                            "kw": {
+                                "@name": "Browser Setup", 
+                                "@library": "Env_Keywords", 
+                                "kw": [
+                                    {
+                                        "@name": "Run Keyword If", 
+                                        "@library": "BuiltIn", 
+                                        "doc": "Runs the given keyword with the given arguments, if ``condition`` is true.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "'${TESTENV}'=='production'", 
+                                                "Get HTTPS & Verify Cert"
+                                            ]
+                                        }, 
+                                        "kw": {
+                                            "@name": "Get HTTPS & Verify Cert", 
+                                            "msg": {
+                                                "@timestamp": "20170817 14:13:02.825", 
+                                                "@level": "FAIL", 
+                                                "#text": "No keyword with name 'Get HTTPS & Verify Cert' found."
+                                            }, 
+                                            "status": {
+                                                "@status": "FAIL", 
+                                                "@endtime": "20170817 14:13:02.825", 
+                                                "@starttime": "20170817 14:13:02.824"
+                                            }
+                                        }, 
+                                        "status": {
+                                            "@status": "FAIL", 
+                                            "@endtime": "20170817 14:13:02.826", 
+                                            "@starttime": "20170817 14:13:02.781"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Run Keyword If", 
+                                        "@library": "BuiltIn", 
+                                        "doc": "Runs the given keyword with the given arguments, if ``condition`` is true.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "'${browser}'=='ie'", 
+                                                "IE browser Setup"
+                                            ]
+                                        }, 
+                                        "kw": {
+                                            "@name": "IE browser Setup", 
+                                            "@library": "Env_Keywords", 
+                                            "kw": {
+                                                "@name": "Set Environment Variable", 
+                                                "@library": "OperatingSystem", 
+                                                "doc": "Sets an environment variable to a specified value.", 
+                                                "arguments": {
+                                                    "arg": [
+                                                        "no_proxy", 
+                                                        "127.0.0.1"
+                                                    ]
+                                                }, 
+                                                "status": {
+                                                    "@status": "NOT_RUN", 
+                                                    "@endtime": "20170817 14:13:02.831", 
+                                                    "@starttime": "20170817 14:13:02.830"
+                                                }
+                                            }, 
+                                            "status": {
+                                                "@status": "PASS", 
+                                                "@endtime": "20170817 14:13:02.832", 
+                                                "@starttime": "20170817 14:13:02.828"
+                                            }
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.832", 
+                                            "@starttime": "20170817 14:13:02.827"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Open Browser", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Opens a new browser instance to given URL.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "${${TESTENV}['sut_url']}${/}auth${/}admin", 
+                                                "${browser}", 
+                                                "${RemoteURL}"
+                                            ]
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.835", 
+                                            "@starttime": "20170817 14:13:02.834"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Maximize Browser Window", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Maximizes current browser window.", 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.836", 
+                                            "@starttime": "20170817 14:13:02.836"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Set Browser Implicit Wait", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Sets current browser's implicit wait in seconds.", 
+                                        "arguments": {
+                                            "arg": "30s"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.837", 
+                                            "@starttime": "20170817 14:13:02.837"
+                                        }
+                                    }
+                                ], 
+                                "status": {
+                                    "@status": "FAIL", 
+                                    "@endtime": "20170817 14:13:02.838", 
+                                    "@starttime": "20170817 14:13:02.780"
+                                }
+                            }, 
+                            "status": {
+                                "@status": "FAIL", 
+                                "@endtime": "20170817 14:13:02.839", 
+                                "@starttime": "20170817 14:13:02.779"
+                            }
+                        }, 
+                        {
+                            "@name": "Run Keyword If", 
+                            "@library": "BuiltIn", 
+                            "doc": "Runs the given keyword with the given arguments, if ``condition`` is true.", 
+                            "arguments": {
+                                "arg": [
+                                    "'${RunLocally}'=='Yes'", 
+                                    "Local Browser Setup"
+                                ]
+                            }, 
+                            "kw": {
+                                "@name": "Local Browser Setup", 
+                                "@library": "Env_Keywords", 
+                                "kw": [
+                                    {
+                                        "@name": "Run Keyword If", 
+                                        "@library": "BuiltIn", 
+                                        "doc": "Runs the given keyword with the given arguments, if ``condition`` is true.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "'${TESTENV}'=='production'", 
+                                                "Get HTTPS & Verify Cert"
+                                            ]
+                                        }, 
+                                        "kw": {
+                                            "@name": "Get HTTPS & Verify Cert", 
+                                            "msg": {
+                                                "@timestamp": "20170817 14:13:02.877", 
+                                                "@level": "FAIL", 
+                                                "#text": "No keyword with name 'Get HTTPS & Verify Cert' found."
+                                            }, 
+                                            "status": {
+                                                "@status": "FAIL", 
+                                                "@endtime": "20170817 14:13:02.877", 
+                                                "@starttime": "20170817 14:13:02.877"
+                                            }
+                                        }, 
+                                        "status": {
+                                            "@status": "FAIL", 
+                                            "@endtime": "20170817 14:13:02.877", 
+                                            "@starttime": "20170817 14:13:02.844"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Run Keyword If", 
+                                        "@library": "BuiltIn", 
+                                        "doc": "Runs the given keyword with the given arguments, if ``condition`` is true.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "'${browser}'=='ie'", 
+                                                "IE browser Setup"
+                                            ]
+                                        }, 
+                                        "kw": {
+                                            "@name": "IE browser Setup", 
+                                            "@library": "Env_Keywords", 
+                                            "kw": {
+                                                "@name": "Set Environment Variable", 
+                                                "@library": "OperatingSystem", 
+                                                "doc": "Sets an environment variable to a specified value.", 
+                                                "arguments": {
+                                                    "arg": [
+                                                        "no_proxy", 
+                                                        "127.0.0.1"
+                                                    ]
+                                                }, 
+                                                "status": {
+                                                    "@status": "NOT_RUN", 
+                                                    "@endtime": "20170817 14:13:02.880", 
+                                                    "@starttime": "20170817 14:13:02.880"
+                                                }
+                                            }, 
+                                            "status": {
+                                                "@status": "PASS", 
+                                                "@endtime": "20170817 14:13:02.880", 
+                                                "@starttime": "20170817 14:13:02.879"
+                                            }
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.880", 
+                                            "@starttime": "20170817 14:13:02.878"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Open Browser", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Opens a new browser instance to given URL.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "${${TESTENV}['sut_url']}${/}auth${/}admin", 
+                                                "${browser}"
+                                            ]
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.881", 
+                                            "@starttime": "20170817 14:13:02.881"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Maximize Browser Window", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Maximizes current browser window.", 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.881", 
+                                            "@starttime": "20170817 14:13:02.881"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Set Browser Implicit Wait", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Sets current browser's implicit wait in seconds.", 
+                                        "arguments": {
+                                            "arg": "30s"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:02.882", 
+                                            "@starttime": "20170817 14:13:02.882"
+                                        }
+                                    }
+                                ], 
+                                "status": {
+                                    "@status": "FAIL", 
+                                    "@endtime": "20170817 14:13:02.883", 
+                                    "@starttime": "20170817 14:13:02.842"
+                                }
+                            }, 
+                            "status": {
+                                "@status": "FAIL", 
+                                "@endtime": "20170817 14:13:02.883", 
+                                "@starttime": "20170817 14:13:02.841"
+                            }
+                        }, 
+                        {
+                            "@name": "Log To Console", 
+                            "@library": "BuiltIn", 
+                            "doc": "Logs the given message to the console.", 
+                            "arguments": {
+                                "arg": "[Execution Proper]"
+                            }, 
+                            "status": {
+                                "@status": "NOT_RUN", 
+                                "@endtime": "20170817 14:13:02.884", 
+                                "@starttime": "20170817 14:13:02.883"
+                            }
+                        }
+                    ], 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:02.884", 
+                        "@starttime": "20170817 14:13:02.757"
+                    }
+                }, 
+                {
+                    "@type": "teardown", 
+                    "@name": "Run Keyword And Ignore Error", 
+                    "@library": "BuiltIn", 
+                    "doc": "Runs the given keyword with the given arguments and ignores possible error.", 
+                    "arguments": {
+                        "arg": "Suite Teardown"
+                    }, 
+                    "kw": {
+                        "@name": "Suite Teardown", 
+                        "@library": "Env_Keywords", 
+                        "kw": [
+                            {
+                                "@name": "Go To", 
+                                "@library": "Selenium2Library", 
+                                "doc": "Navigates the active browser instance to the provided URL.", 
+                                "arguments": {
+                                    "arg": "${${TESTENV}['sut_url']}${/}auth${/}admin"
+                                }, 
+                                "status": {
+                                    "@status": "NOT_RUN", 
+                                    "@endtime": "20170817 14:13:03.245", 
+                                    "@starttime": "20170817 14:13:03.245"
+                                }
+                            }, 
+                            {
+                                "@name": "Delete Keycloak User", 
+                                "@library": "Keycloak_Keywords", 
+                                "kw": [
+                                    {
+                                        "@name": "Wait Until Element Is Visible", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Waits until element specified with `locator` is visible.", 
+                                        "arguments": {
+                                            "arg": "${KC_LoginButton}"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.249", 
+                                            "@starttime": "20170817 14:13:03.248"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Input Text", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Types the given `text` into text field identified by `locator`.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "${KC_UsernameField}", 
+                                                "admin"
+                                            ]
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.249", 
+                                            "@starttime": "20170817 14:13:03.249"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Input Password", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Types the given password into text field identified by `locator`.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "${KC_PasswordField}", 
+                                                "password"
+                                            ]
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.250", 
+                                            "@starttime": "20170817 14:13:03.250"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Click Element", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Click element identified by `locator`.", 
+                                        "arguments": {
+                                            "arg": "${KC_LoginButton}"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.251", 
+                                            "@starttime": "20170817 14:13:03.251"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Wait Until Element Is Visible", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Waits until element specified with `locator` is visible.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "${KC_ImportLink}", 
+                                                "${delay}"
+                                            ]
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.252", 
+                                            "@starttime": "20170817 14:13:03.251"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Click Link", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Clicks a link identified by locator.", 
+                                        "arguments": {
+                                            "arg": "Users"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.253", 
+                                            "@starttime": "20170817 14:13:03.252"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Wait Until Element Is Visible", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Waits until element specified with `locator` is visible.", 
+                                        "arguments": {
+                                            "arg": "${KC_SearchField}"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.253", 
+                                            "@starttime": "20170817 14:13:03.253"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Input Text", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Types the given `text` into text field identified by `locator`.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "${KC_SearchField}", 
+                                                "${KeycloakUser}"
+                                            ]
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.254", 
+                                            "@starttime": "20170817 14:13:03.254"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Click Element", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Click element identified by `locator`.", 
+                                        "arguments": {
+                                            "arg": "${KC_SearchButton}"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.255", 
+                                            "@starttime": "20170817 14:13:03.254"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Sleep", 
+                                        "@library": "BuiltIn", 
+                                        "doc": "Pauses the test executed for the given time.", 
+                                        "arguments": {
+                                            "arg": "5s"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.255", 
+                                            "@starttime": "20170817 14:13:03.255"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Wait Until Element Is Visible", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Waits until element specified with `locator` is visible.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "${KC_DeleteButton}", 
+                                                "${delay}"
+                                            ]
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.256", 
+                                            "@starttime": "20170817 14:13:03.256"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Click Element", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Click element identified by `locator`.", 
+                                        "arguments": {
+                                            "arg": "${KC_DeleteButton}"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.257", 
+                                            "@starttime": "20170817 14:13:03.256"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Wait Until Element Is Visible", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Waits until element specified with `locator` is visible.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "${KC_ConfirmDelete}", 
+                                                "${delay}"
+                                            ]
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.257", 
+                                            "@starttime": "20170817 14:13:03.257"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Click Element", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Click element identified by `locator`.", 
+                                        "arguments": {
+                                            "arg": "${KC_ConfirmDelete}"
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.258", 
+                                            "@starttime": "20170817 14:13:03.258"
+                                        }
+                                    }, 
+                                    {
+                                        "@name": "Wait Until Element Is Not Visible", 
+                                        "@library": "Selenium2Library", 
+                                        "doc": "Waits until element specified with `locator` is not visible.", 
+                                        "arguments": {
+                                            "arg": [
+                                                "${KC_ConfirmDelete}", 
+                                                "${delay}"
+                                            ]
+                                        }, 
+                                        "status": {
+                                            "@status": "NOT_RUN", 
+                                            "@endtime": "20170817 14:13:03.259", 
+                                            "@starttime": "20170817 14:13:03.259"
+                                        }
+                                    }
+                                ], 
+                                "status": {
+                                    "@status": "PASS", 
+                                    "@endtime": "20170817 14:13:03.259", 
+                                    "@starttime": "20170817 14:13:03.246"
+                                }
+                            }, 
+                            {
+                                "@name": "Close Browser", 
+                                "@library": "Selenium2Library", 
+                                "doc": "Closes the current browser.", 
+                                "status": {
+                                    "@status": "NOT_RUN", 
+                                    "@endtime": "20170817 14:13:03.260", 
+                                    "@starttime": "20170817 14:13:03.260"
+                                }
+                            }
+                        ], 
+                        "status": {
+                            "@status": "PASS", 
+                            "@endtime": "20170817 14:13:03.260", 
+                            "@starttime": "20170817 14:13:03.244"
+                        }
+                    }, 
+                    "status": {
+                        "@status": "NOT_RUN", 
+                        "@endtime": "20170817 14:13:03.260", 
+                        "@starttime": "20170817 14:13:03.243"
+                    }
+                }
+            ], 
+            "test": [
+                {
+                    "@id": "s1-t1", 
+                    "@name": "NPOETT-316 Create Keycloak User", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1709\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "Low", 
+                            "Regression"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:02.887", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:02.884", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t2", 
+                    "@name": "NPOETT-147 Login to Project Hub For The First Time Using A Keycloak-generated User", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1709\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "Low", 
+                            "Regression"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:02.893", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:02.891", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t3", 
+                    "@name": "NPOETT-183 Login to Project Hub - username and password field validation", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:02.898", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:02.896", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t4", 
+                    "@name": "NPOETT-304 Project Migration - Export Project", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:02.915", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:02.910", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t5", 
+                    "@name": "NPOETT-306 Project Migration - Import Project, invalid json file", 
+                    "doc": "Original Author: Jessnar Sinues\nRelease: 1709\nLast Changed By: Jessnar Sinues", 
+                    "tags": {
+                        "tag": [
+                            "Low", 
+                            "Regression"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:02.922", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:02.920", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t6", 
+                    "@name": "NPOETT-305 Project Migration - Import Project", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Jessnar Sinues", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:02.928", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:02.925", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t7", 
+                    "@name": "NPOETT-389 Download operators from RAS", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1709\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:02.937", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:02.932", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t8", 
+                    "@name": "NPOETT-384 Upload Operators - Invalid file", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1709\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "Low", 
+                            "Regression"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:02.953", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:02.941", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t9", 
+                    "@name": "NPOETT-382 Upload Operators - JSON file from RAS", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1709\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:02.972", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:02.968", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t10", 
+                    "@name": "NPOETT-148 User Guide link redirection in Help dropdown list", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:02.980", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:02.977", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t11", 
+                    "@name": "NPOETT-149 Nokia AVA Support link redirection in Help dropdown list", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.000", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:02.991", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t12", 
+                    "@name": "NPOETT-332 Displaying AVA and Project Hub versions in Help dropdown list", 
+                    "doc": "Original Author: Francis Mendoza\nRelease: 1709\nLast Changed By: Francis Mendoza", 
+                    "tags": {
+                        "tag": [
+                            "Low", 
+                            "Regression"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.022", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.020", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t13", 
+                    "@name": "NPOETT-309 Project Creation - Help Text and Cancellation", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1709\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "Low", 
+                            "Regression"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.030", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.027", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t14", 
+                    "@name": "NPOETT-307 Project Creation", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.042", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.038", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t15", 
+                    "@name": "NPOETT-333 Project name validity", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1709\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "Low", 
+                            "Regression"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.049", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.047", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t16", 
+                    "@name": "NPOETT-344 Project features", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1709\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.054", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.053", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t17", 
+                    "@name": "NPOETT-310 Project Update", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.060", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.058", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t18", 
+                    "@name": "NPOETT-341 Project Deactivation - Deactivate Button", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1709\nLast Changed By: Jessnar Sinues", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.083", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.075", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t19", 
+                    "@name": "NPOETT-342 Project Reactivation", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.098", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.095", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t20", 
+                    "@name": "NPOETT-338 Add user to project", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Jessnar Sinues", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.114", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.104", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t21", 
+                    "@name": "NPOETT-339 Remove user from project", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.126", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.123", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t22", 
+                    "@name": "NPOETT-321 Add Operators to the Project", 
+                    "doc": "Original Author: Francis Mendoza\nRelease: 1709\nLast Changed By: Francis Mendoza", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.132", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.130", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t23", 
+                    "@name": "NPOETT-415 Launch Zeppelin", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.139", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.137", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t24", 
+                    "@name": "NPOETT-330 Importing Notes - Via Link", 
+                    "doc": "Original Author: Francis Mendoza\nRelease: 1709\nLast Changed By: Francis Mendoza", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.148", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.145", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t25", 
+                    "@name": "NPOETT-331 Importing Notes - Via Knowledge Library", 
+                    "doc": "Original Author: Francis Mendoza\nRelease: 1709\nLast Changed By: Francis Mendoza", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.167", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.164", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t26", 
+                    "@name": "NPOETT-324 Running Notes - Run Zeppelin Tutorials", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Jessnar Sinues", 
+                    "tags": {
+                        "tag": [
+                            "Low", 
+                            "Regression"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.173", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.171", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t27", 
+                    "@name": "NPOETT-361 User's Sandbox", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Jessnar Sinues", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.182", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.179", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }, 
+                {
+                    "@id": "s1-t28", 
+                    "@name": "NPOETT-184 Successful logout", 
+                    "doc": "Original Author: Sidney Bumagat\nRelease: 1706\nLast Changed By: Sidney Bumagat", 
+                    "tags": {
+                        "tag": [
+                            "High", 
+                            "Regression", 
+                            "Smoke"
+                        ]
+                    }, 
+                    "status": {
+                        "@status": "FAIL", 
+                        "@endtime": "20170817 14:13:03.223", 
+                        "@critical": "yes", 
+                        "@starttime": "20170817 14:13:03.221", 
+                        "#text": "Parent suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+                    }
+                }
+            ], 
+            "doc": "Regression Test Suite for Noka AVA", 
+            "status": {
+                "@status": "FAIL", 
+                "@endtime": "20170817 14:13:03.260", 
+                "@starttime": "20170817 14:12:59.241", 
+                "#text": "Suite setup failed:\nSeveral failures occurred:\n\n1) No keyword with name 'Get HTTPS & Verify Cert' found.\n\n2) No keyword with name 'Get HTTPS & Verify Cert' found."
+            }
+        }, 
+        "statistics": {
+            "total": {
+                "stat": [
+                    {
+                        "@fail": "28", 
+                        "@pass": "0", 
+                        "#text": "Critical Tests"
+                    }, 
+                    {
+                        "@fail": "28", 
+                        "@pass": "0", 
+                        "#text": "All Tests"
+                    }
+                ]
+            }, 
+            "tag": {
+                "stat": [
+                    {
+                        "@fail": "20", 
+                        "@pass": "0", 
+                        "#text": "High"
+                    }, 
+                    {
+                        "@fail": "8", 
+                        "@pass": "0", 
+                        "#text": "Low"
+                    }, 
+                    {
+                        "@fail": "28", 
+                        "@pass": "0", 
+                        "#text": "Regression"
+                    }, 
+                    {
+                        "@fail": "16", 
+                        "@pass": "0", 
+                        "#text": "Smoke"
+                    }
+                ]
+            }, 
+            "suite": {
+                "stat": {
+                    "@fail": "28", 
+                    "@id": "s1", 
+                    "@name": "RegressionQ2", 
+                    "@pass": "0", 
+                    "#text": "RegressionQ2"
+                }
+            }
+        }, 
+        "errors": null
+    }
+}

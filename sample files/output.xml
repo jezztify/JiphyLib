@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170817 14:12:59.230" generator="Robot 3.0.2 (Python 2.7.13 on win32)">
+<suite source="D:\1_TestArc\NokiaAVA\Tests\RegressionQ2.robot" id="s1" name="RegressionQ2">
+<kw type="setup" name="Prepare Execution" library="Phub_Keywords">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>\n[Pre-execution]</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.759" starttime="20170817 14:13:02.758"></status>
+</kw>
+<kw name="Generate Project Name" library="Phub_Keywords">
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>epoch</arg>
+<arg>NOW</arg>
+</arguments>
+<assign>
+<var>${EpochTime}</var>
+</assign>
+<status status="NOT_RUN" endtime="20170817 14:13:02.761" starttime="20170817 14:13:02.761"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${projectname}</arg>
+<arg>AVA${EpochTime}${ext}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.763" starttime="20170817 14:13:02.762"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${projectname}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.764" starttime="20170817 14:13:02.763"></status>
+</kw>
+<status status="PASS" endtime="20170817 14:13:02.764" starttime="20170817 14:13:02.760"></status>
+</kw>
+<kw name="Generate Keycloak Username" library="Keycloak_Keywords">
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>epoch</arg>
+<arg>NOW</arg>
+</arguments>
+<assign>
+<var>${EpochTime}</var>
+</assign>
+<status status="NOT_RUN" endtime="20170817 14:13:02.767" starttime="20170817 14:13:02.766"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${KeycloakUser}</arg>
+<arg>KeyCloak${EpochTime}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.768" starttime="20170817 14:13:02.767"></status>
+</kw>
+<status status="PASS" endtime="20170817 14:13:02.768" starttime="20170817 14:13:02.764"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${RunLocally}'=='No' and '${UseChromeOptions}'=='Yes'</arg>
+<arg>Browser Setup with Chrome Options</arg>
+</arguments>
+<kw name="Browser Setup with Chrome Options" library="Env_Keywords">
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+</arguments>
+<assign>
+<var>${chrome options}</var>
+</assign>
+<status status="NOT_RUN" endtime="20170817 14:13:02.772" starttime="20170817 14:13:02.771"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>download.default_directory=C:${/}xampp1${/}htdocs</arg>
+</arguments>
+<assign>
+<var>${prefs}</var>
+</assign>
+<status status="NOT_RUN" endtime="20170817 14:13:02.773" starttime="20170817 14:13:02.772"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.774" starttime="20170817 14:13:02.773"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome options}</arg>
+<arg>to_capabilities</arg>
+</arguments>
+<assign>
+<var>${options}</var>
+</assign>
+<status status="NOT_RUN" endtime="20170817 14:13:02.775" starttime="20170817 14:13:02.774"></status>
+</kw>
+<kw name="Create Webdriver" library="Selenium2Library">
+<doc>Creates an instance of a WebDriver.</doc>
+<arguments>
+<arg>Remote</arg>
+<arg>command_executor=${RemoteURL}</arg>
+<arg>desired_capabilities=${options}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.776" starttime="20170817 14:13:02.775"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${${TESTENV}['sut_url']}${/}auth${/}admin</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.776" starttime="20170817 14:13:02.776"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT_RUN" endtime="20170817 14:13:02.777" starttime="20170817 14:13:02.777"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="Selenium2Library">
+<doc>Sets current browser's implicit wait in seconds.</doc>
+<arguments>
+<arg>30s</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.778" starttime="20170817 14:13:02.777"></status>
+</kw>
+<status status="PASS" endtime="20170817 14:13:02.778" starttime="20170817 14:13:02.770"></status>
+</kw>
+<status status="NOT_RUN" endtime="20170817 14:13:02.778" starttime="20170817 14:13:02.769"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${RunLocally}'=='No' and '${UseChromeOptions}'=='No'</arg>
+<arg>Browser Setup</arg>
+</arguments>
+<kw name="Browser Setup" library="Env_Keywords">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${TESTENV}'=='production'</arg>
+<arg>Get HTTPS &amp; Verify Cert</arg>
+</arguments>
+<kw name="Get HTTPS &amp; Verify Cert">
+<msg timestamp="20170817 14:13:02.825" level="FAIL">No keyword with name 'Get HTTPS &amp; Verify Cert' found.</msg>
+<status status="FAIL" endtime="20170817 14:13:02.825" starttime="20170817 14:13:02.824"></status>
+</kw>
+<status status="FAIL" endtime="20170817 14:13:02.826" starttime="20170817 14:13:02.781"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${browser}'=='ie'</arg>
+<arg>IE browser Setup</arg>
+</arguments>
+<kw name="IE browser Setup" library="Env_Keywords">
+<kw name="Set Environment Variable" library="OperatingSystem">
+<doc>Sets an environment variable to a specified value.</doc>
+<arguments>
+<arg>no_proxy</arg>
+<arg>127.0.0.1</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.831" starttime="20170817 14:13:02.830"></status>
+</kw>
+<status status="PASS" endtime="20170817 14:13:02.832" starttime="20170817 14:13:02.828"></status>
+</kw>
+<status status="NOT_RUN" endtime="20170817 14:13:02.832" starttime="20170817 14:13:02.827"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${${TESTENV}['sut_url']}${/}auth${/}admin</arg>
+<arg>${browser}</arg>
+<arg>${RemoteURL}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.835" starttime="20170817 14:13:02.834"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT_RUN" endtime="20170817 14:13:02.836" starttime="20170817 14:13:02.836"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="Selenium2Library">
+<doc>Sets current browser's implicit wait in seconds.</doc>
+<arguments>
+<arg>30s</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.837" starttime="20170817 14:13:02.837"></status>
+</kw>
+<status status="FAIL" endtime="20170817 14:13:02.838" starttime="20170817 14:13:02.780"></status>
+</kw>
+<status status="FAIL" endtime="20170817 14:13:02.839" starttime="20170817 14:13:02.779"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${RunLocally}'=='Yes'</arg>
+<arg>Local Browser Setup</arg>
+</arguments>
+<kw name="Local Browser Setup" library="Env_Keywords">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${TESTENV}'=='production'</arg>
+<arg>Get HTTPS &amp; Verify Cert</arg>
+</arguments>
+<kw name="Get HTTPS &amp; Verify Cert">
+<msg timestamp="20170817 14:13:02.877" level="FAIL">No keyword with name 'Get HTTPS &amp; Verify Cert' found.</msg>
+<status status="FAIL" endtime="20170817 14:13:02.877" starttime="20170817 14:13:02.877"></status>
+</kw>
+<status status="FAIL" endtime="20170817 14:13:02.877" starttime="20170817 14:13:02.844"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${browser}'=='ie'</arg>
+<arg>IE browser Setup</arg>
+</arguments>
+<kw name="IE browser Setup" library="Env_Keywords">
+<kw name="Set Environment Variable" library="OperatingSystem">
+<doc>Sets an environment variable to a specified value.</doc>
+<arguments>
+<arg>no_proxy</arg>
+<arg>127.0.0.1</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.880" starttime="20170817 14:13:02.880"></status>
+</kw>
+<status status="PASS" endtime="20170817 14:13:02.880" starttime="20170817 14:13:02.879"></status>
+</kw>
+<status status="NOT_RUN" endtime="20170817 14:13:02.880" starttime="20170817 14:13:02.878"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${${TESTENV}['sut_url']}${/}auth${/}admin</arg>
+<arg>${browser}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.881" starttime="20170817 14:13:02.881"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT_RUN" endtime="20170817 14:13:02.881" starttime="20170817 14:13:02.881"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="Selenium2Library">
+<doc>Sets current browser's implicit wait in seconds.</doc>
+<arguments>
+<arg>30s</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.882" starttime="20170817 14:13:02.882"></status>
+</kw>
+<status status="FAIL" endtime="20170817 14:13:02.883" starttime="20170817 14:13:02.842"></status>
+</kw>
+<status status="FAIL" endtime="20170817 14:13:02.883" starttime="20170817 14:13:02.841"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>[Execution Proper]</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:02.884" starttime="20170817 14:13:02.883"></status>
+</kw>
+<status status="FAIL" endtime="20170817 14:13:02.884" starttime="20170817 14:13:02.757"></status>
+</kw>
+<test id="s1-t1" name="NPOETT-316 Create Keycloak User">
+<doc>Original Author: Sidney Bumagat
+Release: 1709
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>Low</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:02.887" critical="yes" starttime="20170817 14:13:02.884">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t2" name="NPOETT-147 Login to Project Hub For The First Time Using A Keycloak-generated User">
+<doc>Original Author: Sidney Bumagat
+Release: 1709
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>Low</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:02.893" critical="yes" starttime="20170817 14:13:02.891">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t3" name="NPOETT-183 Login to Project Hub - username and password field validation">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:02.898" critical="yes" starttime="20170817 14:13:02.896">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t4" name="NPOETT-304 Project Migration - Export Project">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:02.915" critical="yes" starttime="20170817 14:13:02.910">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t5" name="NPOETT-306 Project Migration - Import Project, invalid json file">
+<doc>Original Author: Jessnar Sinues
+Release: 1709
+Last Changed By: Jessnar Sinues</doc>
+<tags>
+<tag>Low</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:02.922" critical="yes" starttime="20170817 14:13:02.920">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t6" name="NPOETT-305 Project Migration - Import Project">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Jessnar Sinues</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:02.928" critical="yes" starttime="20170817 14:13:02.925">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t7" name="NPOETT-389 Download operators from RAS">
+<doc>Original Author: Sidney Bumagat
+Release: 1709
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:02.937" critical="yes" starttime="20170817 14:13:02.932">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t8" name="NPOETT-384 Upload Operators - Invalid file">
+<doc>Original Author: Sidney Bumagat
+Release: 1709
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>Low</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:02.953" critical="yes" starttime="20170817 14:13:02.941">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t9" name="NPOETT-382 Upload Operators - JSON file from RAS">
+<doc>Original Author: Sidney Bumagat
+Release: 1709
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:02.972" critical="yes" starttime="20170817 14:13:02.968">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t10" name="NPOETT-148 User Guide link redirection in Help dropdown list">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:02.980" critical="yes" starttime="20170817 14:13:02.977">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t11" name="NPOETT-149 Nokia AVA Support link redirection in Help dropdown list">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.000" critical="yes" starttime="20170817 14:13:02.991">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t12" name="NPOETT-332 Displaying AVA and Project Hub versions in Help dropdown list">
+<doc>Original Author: Francis Mendoza
+Release: 1709
+Last Changed By: Francis Mendoza</doc>
+<tags>
+<tag>Low</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.022" critical="yes" starttime="20170817 14:13:03.020">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t13" name="NPOETT-309 Project Creation - Help Text and Cancellation">
+<doc>Original Author: Sidney Bumagat
+Release: 1709
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>Low</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.030" critical="yes" starttime="20170817 14:13:03.027">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t14" name="NPOETT-307 Project Creation">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.042" critical="yes" starttime="20170817 14:13:03.038">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t15" name="NPOETT-333 Project name validity">
+<doc>Original Author: Sidney Bumagat
+Release: 1709
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>Low</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.049" critical="yes" starttime="20170817 14:13:03.047">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t16" name="NPOETT-344 Project features">
+<doc>Original Author: Sidney Bumagat
+Release: 1709
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.054" critical="yes" starttime="20170817 14:13:03.053">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t17" name="NPOETT-310 Project Update">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.060" critical="yes" starttime="20170817 14:13:03.058">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t18" name="NPOETT-341 Project Deactivation - Deactivate Button">
+<doc>Original Author: Sidney Bumagat
+Release: 1709
+Last Changed By: Jessnar Sinues</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.083" critical="yes" starttime="20170817 14:13:03.075">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t19" name="NPOETT-342 Project Reactivation">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.098" critical="yes" starttime="20170817 14:13:03.095">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t20" name="NPOETT-338 Add user to project">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Jessnar Sinues</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.114" critical="yes" starttime="20170817 14:13:03.104">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t21" name="NPOETT-339 Remove user from project">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.126" critical="yes" starttime="20170817 14:13:03.123">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t22" name="NPOETT-321 Add Operators to the Project">
+<doc>Original Author: Francis Mendoza
+Release: 1709
+Last Changed By: Francis Mendoza</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.132" critical="yes" starttime="20170817 14:13:03.130">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t23" name="NPOETT-415 Launch Zeppelin">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.139" critical="yes" starttime="20170817 14:13:03.137">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t24" name="NPOETT-330 Importing Notes - Via Link">
+<doc>Original Author: Francis Mendoza
+Release: 1709
+Last Changed By: Francis Mendoza</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.148" critical="yes" starttime="20170817 14:13:03.145">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t25" name="NPOETT-331 Importing Notes - Via Knowledge Library">
+<doc>Original Author: Francis Mendoza
+Release: 1709
+Last Changed By: Francis Mendoza</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.167" critical="yes" starttime="20170817 14:13:03.164">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t26" name="NPOETT-324 Running Notes - Run Zeppelin Tutorials">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Jessnar Sinues</doc>
+<tags>
+<tag>Low</tag>
+<tag>Regression</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.173" critical="yes" starttime="20170817 14:13:03.171">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t27" name="NPOETT-361 User's Sandbox">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Jessnar Sinues</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.182" critical="yes" starttime="20170817 14:13:03.179">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<test id="s1-t28" name="NPOETT-184 Successful logout">
+<doc>Original Author: Sidney Bumagat
+Release: 1706
+Last Changed By: Sidney Bumagat</doc>
+<tags>
+<tag>High</tag>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="FAIL" endtime="20170817 14:13:03.223" critical="yes" starttime="20170817 14:13:03.221">Parent suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</test>
+<kw type="teardown" name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>Suite Teardown</arg>
+</arguments>
+<kw name="Suite Teardown" library="Env_Keywords">
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${${TESTENV}['sut_url']}${/}auth${/}admin</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.245" starttime="20170817 14:13:03.245"></status>
+</kw>
+<kw name="Delete Keycloak User" library="Keycloak_Keywords">
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${KC_LoginButton}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.249" starttime="20170817 14:13:03.248"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${KC_UsernameField}</arg>
+<arg>admin</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.249" starttime="20170817 14:13:03.249"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>${KC_PasswordField}</arg>
+<arg>password</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.250" starttime="20170817 14:13:03.250"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${KC_LoginButton}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.251" starttime="20170817 14:13:03.251"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${KC_ImportLink}</arg>
+<arg>${delay}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.252" starttime="20170817 14:13:03.251"></status>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>Users</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.253" starttime="20170817 14:13:03.252"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${KC_SearchField}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.253" starttime="20170817 14:13:03.253"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${KC_SearchField}</arg>
+<arg>${KeycloakUser}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.254" starttime="20170817 14:13:03.254"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${KC_SearchButton}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.255" starttime="20170817 14:13:03.254"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.255" starttime="20170817 14:13:03.255"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${KC_DeleteButton}</arg>
+<arg>${delay}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.256" starttime="20170817 14:13:03.256"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${KC_DeleteButton}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.257" starttime="20170817 14:13:03.256"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${KC_ConfirmDelete}</arg>
+<arg>${delay}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.257" starttime="20170817 14:13:03.257"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${KC_ConfirmDelete}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.258" starttime="20170817 14:13:03.258"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
+<doc>Waits until element specified with `locator` is not visible.</doc>
+<arguments>
+<arg>${KC_ConfirmDelete}</arg>
+<arg>${delay}</arg>
+</arguments>
+<status status="NOT_RUN" endtime="20170817 14:13:03.259" starttime="20170817 14:13:03.259"></status>
+</kw>
+<status status="PASS" endtime="20170817 14:13:03.259" starttime="20170817 14:13:03.246"></status>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="NOT_RUN" endtime="20170817 14:13:03.260" starttime="20170817 14:13:03.260"></status>
+</kw>
+<status status="PASS" endtime="20170817 14:13:03.260" starttime="20170817 14:13:03.244"></status>
+</kw>
+<status status="NOT_RUN" endtime="20170817 14:13:03.260" starttime="20170817 14:13:03.243"></status>
+</kw>
+<doc>Regression Test Suite for Noka AVA</doc>
+<status status="FAIL" endtime="20170817 14:13:03.260" starttime="20170817 14:12:59.241">Suite setup failed:
+Several failures occurred:
+
+1) No keyword with name 'Get HTTPS &amp; Verify Cert' found.
+
+2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
+</suite>
+<statistics>
+<total>
+<stat fail="28" pass="0">Critical Tests</stat>
+<stat fail="28" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="20" pass="0">High</stat>
+<stat fail="8" pass="0">Low</stat>
+<stat fail="28" pass="0">Regression</stat>
+<stat fail="16" pass="0">Smoke</stat>
+</tag>
+<suite>
+<stat fail="28" id="s1" name="RegressionQ2" pass="0">RegressionQ2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

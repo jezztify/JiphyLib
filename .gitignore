@@ -1,0 +1,4 @@
+outputjson
+output.*
+.vscode
+*.pyc

@@ -1,0 +1,3 @@
+If you want to contribute, simply fork my repository and send me a Merge Request (MR). We'll review it together and merge it in then You will be listed in the official contributors of this project.
+
+If you find issues, please use the issue tab and file issues there. Make sure that you describe your issues well with as much details as possible. If you know how to fix it, please file a merge request and it will be subject to reviews.
