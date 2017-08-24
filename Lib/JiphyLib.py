@@ -1,6 +1,6 @@
 __author__ = "Jessnar Sinues"
 __copyright__ = "(c) 2017, Jessnar Sinues"
-__license__ = "Mozilla Public License 2.0"
+__license__ = "MIT License"
 __version__ = "0.0.1"
 __maintainer__ = "Jessnar Sinues"
 __status__ = "alpha"
