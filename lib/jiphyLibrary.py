@@ -39,6 +39,7 @@ class Jiphy(object):
 		response.trust_env = False
 		response = requests.get(self.url+endpoint, auth=(self.user,self.passwd))
 		results = json.loads(response.text)
+		versionID = -1
 		for releaseStatus in results:
 			for version in range (0,len(results[releaseStatus])):
 				if results[releaseStatus][version]['value'] == versionID:

@@ -2,7 +2,8 @@
 
 ## path inclusions
 import sys
-sys.path.append('..')
+import os
+sys.path.append(os.getcwd() + '//..//lib')
 ## libraries
 from difflib import SequenceMatcher
 import json
@@ -28,22 +29,22 @@ def Get_IssueID(issueIDs, tcName):
     return 0
 if __name__ == "__main__":
 	## constructor
-	this = Jiphy("https://jiradc.int.net.nokia.com/rest/zapi/latest","TEST USER","TEST PASSWORD")
+	this = Jiphy("https://this.jira.url/rest/zapi/latest","TEST USER","TEST PASSWORD")
 	
 	## constants
-	projectID = this.Get_ProjectID("TEST PROJECT NAME")
+	projectID = this.get_projectID("TEST PROJECT NAME")
 	today = datetime.datetime.today().strftime('%d_%b_%y_%H%M%S')
 	projectCode = "TEST PROJECT CODE"
 	#versionName = "Unscheduled"
-	#versionID = this.Get_VersionID(projectID, versionName)
+	#versionID = this.get_versionID(projectID, versionName)
 	versionID = 123456789
 	
 	## processors
 	cycleName = "AutoTest_" + str(today)
 	print("cycleName: " + cycleName)
 	
-	cycleID = this.Get_Test_CycleID(projectID, cycleName, versionID)
-	issueIDs = this.Get_All_IssueID(projectCode)
+	cycleID = this.get_test_cycleID(projectID, cycleName, versionID)
+	issueIDs = this.get_all_issueID(projectCode)
 	
 	## main iterator
 	outputjson = this.parse_xml('output.xml')
@@ -51,13 +52,13 @@ if __name__ == "__main__":
 		for testname in range(0,len(outputjson[result])):
 			tcName = outputjson[result][testname]['name']
 			status = outputjson[result][testname]['status']
-			print tcName + ": " + status
+			print(tcName + ": " + status)
 			issueID = Get_IssueID(issueIDs, tcName)
-			executionID = this.Create_ExecutionID(projectID, cycleID, issueID)
+			executionID = this.create_executionID(projectID, cycleID, issueID)
 			tries = 3
 			while True:
 				try:
-					this.Update_Test_Case_Execution_Status(executionID, status)
+					this.update_test_case_execution_status(executionID, status)
 				except:
 					if tries > 0:
 						tries -= 1

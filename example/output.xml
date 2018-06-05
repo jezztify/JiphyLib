@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <robot generated="20170817 14:12:59.230" generator="Robot 3.0.2 (Python 2.7.13 on win32)">
-<suite source="D:\1_TestArc\NokiaAVA\Tests\RegressionQ2.robot" id="s1" name="RegressionQ2">
+<suite source="D:\1_TestArc\TestX\Tests\RegressionQ2.robot" id="s1" name="RegressionQ2">
 <kw type="setup" name="Prepare Execution" library="Phub_Keywords">
 <kw name="Log To Console" library="BuiltIn">
 <doc>Logs the given message to the console.</doc>
@@ -22,10 +22,10 @@
 <status status="NOT_RUN" endtime="20170817 14:13:02.761" starttime="20170817 14:13:02.761"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
-<doc>Makes a variable available globally in all tests and suites.</doc>
+<doc>Makes a variable Xilable globally in all tests and suites.</doc>
 <arguments>
 <arg>${projectname}</arg>
-<arg>AVA${EpochTime}${ext}</arg>
+<arg>X${EpochTime}${ext}</arg>
 </arguments>
 <status status="NOT_RUN" endtime="20170817 14:13:02.763" starttime="20170817 14:13:02.762"></status>
 </kw>
@@ -51,7 +51,7 @@
 <status status="NOT_RUN" endtime="20170817 14:13:02.767" starttime="20170817 14:13:02.766"></status>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
-<doc>Makes a variable available globally in all tests and suites.</doc>
+<doc>Makes a variable Xilable globally in all tests and suites.</doc>
 <arguments>
 <arg>${KeycloakUser}</arg>
 <arg>KeyCloak${EpochTime}</arg>
@@ -272,10 +272,10 @@
 </kw>
 <status status="FAIL" endtime="20170817 14:13:02.884" starttime="20170817 14:13:02.757"></status>
 </kw>
-<test id="s1-t1" name="NPOETT-316 Create Keycloak User">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t1" name="TEST-1 Create User">
+<doc>Original Author: Tester X
 Release: 1709
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>Low</tag>
 <tag>Regression</tag>
@@ -287,10 +287,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t2" name="NPOETT-147 Login to Project Hub For The First Time Using A Keycloak-generated User">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t2" name="TEST-147 Login for the first time">
+<doc>Original Author: Tester X
 Release: 1709
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>Low</tag>
 <tag>Regression</tag>
@@ -302,10 +302,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t3" name="NPOETT-183 Login to Project Hub - username and password field validation">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t3" name="TEST-183 Login Test - username and password field validation">
+<doc>Original Author: Tester X
 Release: 1706
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -318,10 +318,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t4" name="NPOETT-304 Project Migration - Export Project">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t4" name="TEST-304 Project Migration - Export Project">
+<doc>Original Author: Tester X
 Release: 1706
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -334,7 +334,7 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t5" name="NPOETT-306 Project Migration - Import Project, invalid json file">
+<test id="s1-t5" name="TEST-306 Project Migration - Import Project, invalid json file">
 <doc>Original Author: Jessnar Sinues
 Release: 1709
 Last Changed By: Jessnar Sinues</doc>
@@ -349,8 +349,8 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t6" name="NPOETT-305 Project Migration - Import Project">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t6" name="TEST-305 Project Migration - Import Project">
+<doc>Original Author: Tester X
 Release: 1706
 Last Changed By: Jessnar Sinues</doc>
 <tags>
@@ -365,10 +365,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t7" name="NPOETT-389 Download operators from RAS">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t7" name="TEST-389 Download operators from RAS">
+<doc>Original Author: Tester X
 Release: 1709
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -381,10 +381,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t8" name="NPOETT-384 Upload Operators - Invalid file">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t8" name="TEST-384 Upload Test - Invalid file">
+<doc>Original Author: Tester X
 Release: 1709
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>Low</tag>
 <tag>Regression</tag>
@@ -396,10 +396,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t9" name="NPOETT-382 Upload Operators - JSON file from RAS">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t9" name="TEST-382 Upload Test - JSON file from RAS">
+<doc>Original Author: Tester X
 Release: 1709
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -412,10 +412,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t10" name="NPOETT-148 User Guide link redirection in Help dropdown list">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t10" name="TEST-148 User Guide link redirection in Help dropdown list">
+<doc>Original Author: Tester X
 Release: 1706
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -428,10 +428,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t11" name="NPOETT-149 Nokia AVA Support link redirection in Help dropdown list">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t11" name="TEST-149 Test Support link redirection in Help dropdown list">
+<doc>Original Author: Tester X
 Release: 1706
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -444,7 +444,7 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t12" name="NPOETT-332 Displaying AVA and Project Hub versions in Help dropdown list">
+<test id="s1-t12" name="TEST-332 Displaying Test and Test versions in Help dropdown list">
 <doc>Original Author: Francis Mendoza
 Release: 1709
 Last Changed By: Francis Mendoza</doc>
@@ -459,10 +459,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t13" name="NPOETT-309 Project Creation - Help Text and Cancellation">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t13" name="TEST-309 Project Creation - Help Text and Cancellation">
+<doc>Original Author: Tester X
 Release: 1709
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>Low</tag>
 <tag>Regression</tag>
@@ -474,10 +474,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t14" name="NPOETT-307 Project Creation">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t14" name="TEST-307 Project Creation">
+<doc>Original Author: Tester X
 Release: 1706
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -490,10 +490,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t15" name="NPOETT-333 Project name validity">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t15" name="TEST-333 Project name validity">
+<doc>Original Author: Tester X
 Release: 1709
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>Low</tag>
 <tag>Regression</tag>
@@ -505,10 +505,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t16" name="NPOETT-344 Project features">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t16" name="TEST-344 Project features">
+<doc>Original Author: Tester X
 Release: 1709
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -520,10 +520,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t17" name="NPOETT-310 Project Update">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t17" name="TEST-310 Project Update">
+<doc>Original Author: Tester X
 Release: 1706
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -536,8 +536,8 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t18" name="NPOETT-341 Project Deactivation - Deactivate Button">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t18" name="TEST-341 Project Deactivation - Deactivate Button">
+<doc>Original Author: Tester X
 Release: 1709
 Last Changed By: Jessnar Sinues</doc>
 <tags>
@@ -552,10 +552,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t19" name="NPOETT-342 Project Reactivation">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t19" name="TEST-342 Project Reactivation">
+<doc>Original Author: Tester X
 Release: 1706
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -568,8 +568,8 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t20" name="NPOETT-338 Add user to project">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t20" name="TEST-338 Add user to project">
+<doc>Original Author: Tester X
 Release: 1706
 Last Changed By: Jessnar Sinues</doc>
 <tags>
@@ -584,10 +584,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t21" name="NPOETT-339 Remove user from project">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t21" name="TEST-339 Remove user from project">
+<doc>Original Author: Tester X
 Release: 1706
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -600,7 +600,7 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t22" name="NPOETT-321 Add Operators to the Project">
+<test id="s1-t22" name="TEST-321 Add Operators to the Project">
 <doc>Original Author: Francis Mendoza
 Release: 1709
 Last Changed By: Francis Mendoza</doc>
@@ -615,10 +615,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t23" name="NPOETT-415 Launch Zeppelin">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t23" name="TEST-415 Launch Zeppelin">
+<doc>Original Author: Tester X
 Release: 1706
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -631,7 +631,7 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t24" name="NPOETT-330 Importing Notes - Via Link">
+<test id="s1-t24" name="TEST-330 Importing Notes - Via Link">
 <doc>Original Author: Francis Mendoza
 Release: 1709
 Last Changed By: Francis Mendoza</doc>
@@ -646,7 +646,7 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t25" name="NPOETT-331 Importing Notes - Via Knowledge Library">
+<test id="s1-t25" name="TEST-331 Importing Notes - Via Knowledge Library">
 <doc>Original Author: Francis Mendoza
 Release: 1709
 Last Changed By: Francis Mendoza</doc>
@@ -661,8 +661,8 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t26" name="NPOETT-324 Running Notes - Run Zeppelin Tutorials">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t26" name="TEST-324 Running Notes - Run Zeppelin Tutorials">
+<doc>Original Author: Tester X
 Release: 1706
 Last Changed By: Jessnar Sinues</doc>
 <tags>
@@ -676,8 +676,8 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t27" name="NPOETT-361 User's Sandbox">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t27" name="TEST-361 User's Sandbox">
+<doc>Original Author: Tester X
 Release: 1706
 Last Changed By: Jessnar Sinues</doc>
 <tags>
@@ -692,10 +692,10 @@ Several failures occurred:
 
 2) No keyword with name 'Get HTTPS &amp; Verify Cert' found.</status>
 </test>
-<test id="s1-t28" name="NPOETT-184 Successful logout">
-<doc>Original Author: Sidney Bumagat
+<test id="s1-t28" name="TEST-184 Successful logout">
+<doc>Original Author: Tester X
 Release: 1706
-Last Changed By: Sidney Bumagat</doc>
+Last Changed By: Tester X</doc>
 <tags>
 <tag>High</tag>
 <tag>Regression</tag>
@@ -844,7 +844,7 @@ Several failures occurred:
 </kw>
 <status status="NOT_RUN" endtime="20170817 14:13:03.260" starttime="20170817 14:13:03.243"></status>
 </kw>
-<doc>Regression Test Suite for Noka AVA</doc>
+<doc>Regression Test Suite for Test X</doc>
 <status status="FAIL" endtime="20170817 14:13:03.260" starttime="20170817 14:12:59.241">Suite setup failed:
 Several failures occurred:
 
