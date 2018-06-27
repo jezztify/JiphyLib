@@ -98,7 +98,7 @@ class jiphyLibrary(object):
 		
 	## Get All Test Case IDs (issueID)
 	def get_all_issueID(self, projectCode):
-		''' Gets the issueID of an in JIRA
+		''' Gets all the issueIDs of a of a project in JIRA
 			params: projectCode(string)
 			usage: Get_IssueID("PRJCODE")
 		'''		
@@ -117,6 +117,26 @@ class jiphyLibrary(object):
 			issueIDs.append(thisdict)
 		print("Total Issue IDs Fetched: %s" %(str(len(issueIDs))))
 		return issueIDs
+	## Get Issue IDs via Test Case Name(issueID)
+	def get_issueID(issueIDs, tcName):
+		''' Gets the issueID of an in JIRA
+			params: issueIDs(dictionary)
+			        tcName(string)
+			usage: get_issueID(ListOfIssueIDs, TestCaseName))
+		'''	
+	    for index in range(0,len(issueIDs)):
+		if tcName.lower() == issueIDs[index]['name'].lower():
+		    return json.dumps(issueIDs[index]['issueID']).strip('\"')
+	    for index in range(0,len(issueIDs)):
+		if similar(tcName.lower(), issueIDs[index]['name'].lower()) >= 0.80:
+		    return json.dumps(issueIDs[index]['issueID']).strip('\"')        
+	    for index in range(0,len(issueIDs)):
+		if tcName.lower() in issueIDs[index]['name'].lower():
+		    return json.dumps(issueIDs[index]['issueID']).strip('\"')
+	    for index in range(0,len(issueIDs)):
+		if issueIDs[index]['name'].lower() in tcName.lower():
+		    return json.dumps(issueIDs[index]['issueID']).strip('\"')        
+	return 0
 
 	## Create New/Get Execution ID (executionID)
 	def create_executionID(self, projectID, cycleID, issueID):
