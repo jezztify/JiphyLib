@@ -3,7 +3,7 @@ import json
 import datetime
 import xmltodict
 
-class Jiphy(object):
+class jiphyLibrary(object):
 	def __init__(self, url, user, passwd):
 		self.url = url
 		self.user = user
